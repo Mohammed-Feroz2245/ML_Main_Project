@@ -1,4 +1,4 @@
-# Online Course Completion Prediction
+# Online Course Completion Prediction (ML + FastAPI + Docker + AWS)
 
 End-to-end Machine Learning project using:
 - Scikit-learn
@@ -6,8 +6,10 @@ End-to-end Machine Learning project using:
 - Docker
 - AWS ECR & ECS
 
-## Project Overview
-Predicts whether a student will complete an online course based on activity and device usage.
+## 📌 Project Overview
+This project predicts whether a student will complete an online course based on engagement and behavioral features.
+It includes data preprocessing, machine learning model training, and a REST API for inference.
+
 
 ## Tech Stack
 - Python
@@ -27,9 +29,7 @@ ML_Main_Project/
 │   └── model.pkl
 │
 ├── src/
-│   ├── __init__.py
-│   ├── data_preprocessing.py
-│   ├── train.py
+│   ├── script.py
 │   └── model_class.py
 │
 ├── api/
@@ -38,5 +38,4 @@ ML_Main_Project/
 ├── Dockerfile
 ├── requirements.txt
 ├── .gitignore
-├── README.md
-└── run_training.py
+└── README.md
