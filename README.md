@@ -1,19 +1,21 @@
-# Online Course Completion Prediction (ML + FastAPI + Docker + AWS)
+# Online Course Completion Prediction
 
-## 📌 Project Overview
-This project predicts whether a student will complete an online course based on engagement and behavioral features.
-It includes data preprocessing, machine learning model training, and a REST API for inference.
+End-to-end Machine Learning project using:
+- Scikit-learn
+- FastAPI
+- Docker
+- AWS ECR & ECS
 
----
+## Project Overview
+Predicts whether a student will complete an online course based on activity and device usage.
 
-## 🧠 Machine Learning Pipeline
-- Data cleaning and preprocessing
-- One-hot encoding of categorical features
-- Train/test split
-- Random Forest Classifier
-- Model serialization using Pickle
-
----
+## Tech Stack
+- Python
+- Pandas, NumPy
+- Scikit-learn
+- FastAPI
+- Docker
+- AWS (ECR, ECS)
 
 ## 🗂 Project Structure
 ML_Main_Project/
