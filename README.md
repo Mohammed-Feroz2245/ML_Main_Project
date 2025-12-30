@@ -1,4 +1,4 @@
-##Online Course Completion Prediction
+# Online-Course-Completion-Prediction-using-Machine-Learning
 
 Machine Learning + FastAPI project to predict whether a student will complete an online course based on engagement and activity data.
 
