@@ -26,14 +26,27 @@ dummies = pd.get_dummies(df['preferred_device'], drop_first=True).astype(int)
 df = pd.concat([df, dummies], axis=1)
 
 
-X = df.drop([
-    'continent', 'country', 'education_level',
-    'preferred_device', 'completed_course'
-], axis=1)
+X = df.drop(
+    [
+        'continent',
+        'country',
+        'education_level',
+        'num_logins_last_month',
+        'videos_watched_pct',
+        'discussion_posts',
+        'is_working_professional',
+        'preferred_device',
+        'completed_course'
+    ],
+    axis=1,
+    errors='ignore'
+)
+
 
 
 y = df['completed_course']
 
+print(X.columns)
 
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42
