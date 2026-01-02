@@ -9,6 +9,14 @@ Identifying students who are unlikely to complete a course helps platforms impro
 
 This project predicts whether a student will complete or not complete an online course using behavioral and usage data.
 
+## 🚀 Features  
+- 🧠 **Machine Learning Model** built using Scikit-learn (Logistic Regression, Random Forest, Decision Tree)  
+- ⚙️ **Object-Oriented Programming (OOP)** used to structure data processing, model training, and prediction modules  
+- 🌐 **FastAPI Deployment** with endpoints for model training and real-time predictions  
+- 🧾 **Input validation** using Pydantic models for clean data handling  
+- 📘 **Swagger UI** for API documentation and testing  
+- 🧩 Modular, maintainable, and production-ready project architecture
+
 # Dataset
 
 Source: Online course engagement dataset
