@@ -100,4 +100,3 @@ Deployed the model using FastAPI
 Dockerized the application for deployment
 
 Pushed and deployed the container using AWS (ECR & ECS)
-
