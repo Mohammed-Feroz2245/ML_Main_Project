@@ -1,40 +1,103 @@
-# Online Course Completion Prediction (ML + FastAPI + Docker + AWS)
+# Online-Course-Completion-Prediction-using-Machine-Learning
 
-## 📌 Project Overview
-This project predicts whether a student will complete an online course based on engagement and behavioral features.
-It includes data preprocessing, machine learning model training, and a REST API for inference.
+Machine Learning + FastAPI project to predict whether a student will complete an online course based on engagement and activity data.
 
----
+Problem Statement
 
-## 🧠 Machine Learning Pipeline
-- Data cleaning and preprocessing
-- One-hot encoding of categorical features
-- Train/test split
-- Random Forest Classifier
-- Model serialization using Pickle
+Online learning platforms often face high dropout rates.
+Identifying students who are unlikely to complete a course helps platforms improve engagement, provide support, and reduce dropouts.
 
----
+This project predicts whether a student will complete or not complete an online course using behavioral and usage data.
 
-## 🗂 Project Structure
-ML_Main_Project/
-│
-├── data/
-│   └── online_course_completion.csv
-│
-├── artifacts/
-│   └── model.pkl
-│
-├── src/
-│   ├── __init__.py
-│   ├── data_preprocessing.py
-│   ├── train.py
-│   └── model_class.py
-│
-├── api/
-│   └── main.py
-│
-├── Dockerfile
-├── requirements.txt
-├── .gitignore
-├── README.md
-└── run_training.py
+## 🚀 Features  
+- 🧠 **Machine Learning Model** built using Scikit-learn (Logistic Regression, Random Forest, Decision Tree)  
+- ⚙️ **Object-Oriented Programming (OOP)** used to structure data processing, model training, and prediction modules  
+- 🌐 **FastAPI Deployment** with endpoints for model training and real-time predictions  
+- 🧾 **Input validation** using Pydantic models for clean data handling  
+- 📘 **Swagger UI** for API documentation and testing  
+- 🧩 Modular, maintainable, and production-ready project architecture
+
+## Dataset
+
+Source: Online course engagement dataset
+
+Number of Features: Multiple student engagement and activity features
+
+Target Variable: completed_course
+
+1 → Completed
+
+0 → Not Completed
+
+Data Preparation Steps
+
+Removed duplicate records
+
+Dropped irrelevant columns (height, weight, pets, etc.)
+
+Removed missing values (~5% of data)
+
+Applied One-Hot Encoding on categorical features (preferred_device)
+
+## Model
+
+Algorithm Used: Random Forest Classifier
+
+Why Random Forest?
+
+Handles non-linear relationships well
+
+Robust to overfitting
+
+Performs well without heavy feature scaling
+
+Evaluation Metric: Accuracy Score
+
+Train/Test Split: 80% training, 20% testing
+
+## API Endpoint (FastAPI)
+
+The trained model is exposed as a REST API using FastAPI.
+
+Endpoint
+POST /predict
+
+Input
+
+Student engagement features in JSON format.
+
+Output
+Completed / Not Completed
+
+
+The API takes student input data, sends it to the trained model, and returns the prediction.
+
+How to Run Locally
+
+1️⃣ Install dependencies
+
+pip install -r requirements.txt
+
+
+2️⃣ Start FastAPI server
+
+uvicorn main:app --reload
+
+
+3️⃣ Open API documentation
+
+http://127.0.0.1:8000/docs
+
+## Results & Learnings
+What Worked Well
+
+Built a complete end-to-end ML pipeline
+
+Implemented Object-Oriented Programming for model inference
+
+Deployed the model using FastAPI
+
+Dockerized the application for deployment
+
+Pushed and deployed the container using AWS (ECR & ECS)
+
