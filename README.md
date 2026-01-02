@@ -17,7 +17,7 @@ This project predicts whether a student will complete or not complete an online 
 - 📘 **Swagger UI** for API documentation and testing  
 - 🧩 Modular, maintainable, and production-ready project architecture
 
-# Dataset
+## Dataset
 
 Source: Online course engagement dataset
 
@@ -39,7 +39,7 @@ Removed missing values (~5% of data)
 
 Applied One-Hot Encoding on categorical features (preferred_device)
 
-# Model
+## Model
 
 Algorithm Used: Random Forest Classifier
 
@@ -55,7 +55,7 @@ Evaluation Metric: Accuracy Score
 
 Train/Test Split: 80% training, 20% testing
 
-# API Endpoint (FastAPI)
+## API Endpoint (FastAPI)
 
 The trained model is exposed as a REST API using FastAPI.
 
@@ -88,7 +88,7 @@ uvicorn main:app --reload
 
 http://127.0.0.1:8000/docs
 
-Results & Learnings
+## Results & Learnings
 What Worked Well
 
 Built a complete end-to-end ML pipeline
