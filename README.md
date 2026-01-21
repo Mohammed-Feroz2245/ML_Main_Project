@@ -1,103 +1,149 @@
+Course Completion ML System
 
-## Online-Course-Completion-Prediction-using-Machine-Learning
+An end-to-end MLOps-oriented machine learning system that predicts whether a student will complete an online course, including training, deployment, automation, and retraining.
 
-Machine Learning + FastAPI project to predict whether a student will complete an online course based on engagement and activity data.
+Project Overview
 
-Problem Statement
+Online learning platforms face high dropout rates, making it difficult to identify students who may disengage early.
+This project addresses the problem by building a production-ready ML system that predicts course completion using student engagement and activity data.
 
-Online learning platforms often face high dropout rates.
-Identifying students who are unlikely to complete a course helps platforms improve engagement, provide support, and reduce dropouts.
+The system is designed following MLOps principles, covering:
 
-This project predicts whether a student will complete or not complete an online course using behavioral and usage data.
+Modular ML pipelines
 
-## 🚀 Features  
-- 🧠 **Machine Learning Model** built using Scikit-learn (Logistic Regression, Random Forest, Decision Tree)  
-- ⚙️ **Object-Oriented Programming (OOP)** used to structure data processing, model training, and prediction modules  
-- 🌐 **FastAPI Deployment** with endpoints for model training and real-time predictions  
-- 🧾 **Input validation** using Pydantic models for clean data handling  
-- 📘 **Swagger UI** for API documentation and testing  
-- 🧩 Modular, maintainable, and production-ready project architecture
+API-based inference
 
-## Dataset
+Cloud deployment
 
-Source: Online course engagement dataset
+Automated retraining
 
-Number of Features: Multiple student engagement and activity features
+Architecture Diagram (Textual)
+                ┌──────────────┐
+                │   Dataset    │
+                │ (CSV Upload) │
+                └──────┬───────┘
+                       │
+               Upload to AWS S3
+                       │
+        ┌──────────────▼──────────────┐
+        │        AWS Lambda            │
+        │  (Model Retraining Trigger)  │
+        └──────────────┬──────────────┘
+                       │
+              Trained Model Stored
+                       │
+                  AWS S3 Bucket
+                       │
+        ┌──────────────▼──────────────┐
+        │        FastAPI Service       │
+        │   (Inference REST API)       │
+        └──────────────┬──────────────┘
+                       │
+              Docker Container
+                       │
+                AWS ECR → ECS
 
-Target Variable: completed_course
+Tech Stack
 
-1 → Completed
+Machine Learning
 
-0 → Not Completed
+Python
 
-Data Preparation Steps
+Scikit-learn (Random Forest)
 
-Removed duplicate records
+API & Backend
 
-Dropped irrelevant columns (height, weight, pets, etc.)
+FastAPI
 
-Removed missing values (~5% of data)
+Pydantic
 
-Applied One-Hot Encoding on categorical features (preferred_device)
+Swagger UI
 
-## Model
+MLOps & Cloud
 
-Algorithm Used: Random Forest Classifier
+Docker
 
-Why Random Forest?
+AWS S3 (data & model storage)
 
-Handles non-linear relationships well
+AWS Lambda (automated retraining)
 
-Robust to overfitting
+AWS ECR & ECS (container registry & deployment)
 
-Performs well without heavy feature scaling
+Development
 
-Evaluation Metric: Accuracy Score
+Git & GitHub
 
-Train/Test Split: 80% training, 20% testing
+Object-Oriented Programming (OOP)
 
-## API Endpoint (FastAPI)
-
-The trained model is exposed as a REST API using FastAPI.
-
-Endpoint
-POST /predict
-
-Input
-
-Student engagement features in JSON format.
-
-Output
-Completed / Not Completed
-
-
-The API takes student input data, sends it to the trained model, and returns the prediction.
-
-How to Run Locally
-
-1️⃣ Install dependencies
-
-pip install -r requirements.txt
-
-
-2️⃣ Start FastAPI server
-
-uvicorn main:app --reload
+How to Run API Locally
+Option 1: Using Docker (Recommended)
+docker build -t course-completion-ml .
+docker run -p 8000:8000 course-completion-ml
 
 
-3️⃣ Open API documentation
+Open Swagger UI:
 
 http://127.0.0.1:8000/docs
 
-## Results & Learnings
-What Worked Well
+Option 2: Without Docker
+pip install -r requirements.txt
+uvicorn main:app --reload
 
-Built a complete end-to-end ML pipeline
+API Endpoint
 
-Implemented Object-Oriented Programming for model inference
+POST /predict
 
-Deployed the model using FastAPI
+Input:
+Student engagement features in JSON format
 
-Dockerized the application for deployment
+Output:
 
-Pushed and deployed the container using AWS (ECR & ECS)
+Completed
+
+Not Completed
+
+How Retraining Works (S3 → Lambda)
+
+New dataset is uploaded to AWS S3
+
+S3 event triggers AWS Lambda
+
+Lambda:
+
+Loads new data
+
+Retrains the ML model
+
+Evaluates performance
+
+Saves updated model back to S3
+
+FastAPI service loads the latest model for inference
+
+This enables automated, event-driven model retraining, aligning with MLOps best practices.
+
+CI/CD Pipeline Overview
+
+Code pushed to GitHub
+
+Docker image built locally or via pipeline
+
+Image pushed to AWS ECR
+
+Deployed to AWS ECS
+
+FastAPI service updated with minimal downtime
+
+(CI/CD concepts implemented with focus on automation and reproducibility)
+
+Key Learnings
+
+Designing production-ready ML systems
+
+Deploying ML models as scalable APIs
+
+Containerization and cloud deployment
+
+Event-driven retraining pipelines
+
+Applying MLOps principles to real-world ML problems
