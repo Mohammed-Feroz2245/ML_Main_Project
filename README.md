@@ -1,4 +1,4 @@
-## Course Completion ML System
+### Course Completion ML System
 
 An end-to-end **MLOps-oriented machine learning system** that predicts whether a student will complete an online course based on engagement and activity data.
 
@@ -84,7 +84,7 @@ uvicorn main:app --reload
 
 ---
 
-#API Endpoint
+##API Endpoint
 
 POST /predict
 
@@ -99,7 +99,7 @@ Output:
 
 ---
 
-Automated Retraining (S3 → Lambda)
+##Automated Retraining (S3 → Lambda)
 
 New datasets uploaded to AWS S3 trigger an AWS Lambda function
 
@@ -109,7 +109,7 @@ The FastAPI service loads the latest model for inference
 
 ---
 
-#CI/CD Overview
+##CI/CD Overview
 
 Code versioned using GitHub
 
@@ -121,7 +121,7 @@ Focus on automation, reproducibility, and scalability
 
 ---
 
-#Key Learnings
+##Key Learnings
 
 Building production-ready ML systems
 
