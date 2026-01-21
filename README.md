@@ -73,12 +73,14 @@ The focus of this project is not only model accuracy, but also **deployability, 
 
 
 docker build -t course-completion-ml .
+```bash
 docker run -p 8000:8000 course-completion-ml
+```
 
-#Open API documentation:
+Open API documentation:
 http://127.0.0.1:8000/docs
 
-#Without Docker:
+Without Docker:
 pip install -r requirements.txt
 uvicorn main:app --reload
 
