@@ -3,14 +3,6 @@ import pickle
 import os
 import pandas as pd
 
-class CourseCompletionModel:
-    def __init__(self):
-        self.bucket_name = "course-completion-ml-artifacts"
-        self.model_key = "artifacts/model.pkl"
-        self.local_model_path = "/tmp/model.pkl"
-        self.model = None
-
-    import os
 
 class CourseCompletionModel:
     def __init__(self):
@@ -26,9 +18,6 @@ class CourseCompletionModel:
 
         if self.model is not None:
             return
-
-        import boto3
-        import pickle
 
         s3 = boto3.client("s3")
 
