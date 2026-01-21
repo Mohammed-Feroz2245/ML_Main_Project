@@ -1,23 +1,22 @@
-Course Completion ML System
+## Course Completion ML System
 
-An end-to-end MLOps-oriented machine learning system that predicts whether a student will complete an online course, including training, deployment, automation, and retraining.
+An end-to-end **MLOps-oriented machine learning system** that predicts whether a student will complete an online course based on engagement and activity data.
 
-Project Overview
+The project demonstrates the complete ML lifecycle, including **training, deployment, automation, and retraining**, following production-style practices.
 
-Online learning platforms face high dropout rates, making it difficult to identify students who may disengage early.
-This project addresses the problem by building a production-ready ML system that predicts course completion using student engagement and activity data.
+---
 
-The system is designed following MLOps principles, covering:
+## Project Overview
 
-Modular ML pipelines
+Online learning platforms often face high dropout rates.  
+This system helps identify students who are likely to drop out, enabling platforms to take proactive actions such as personalized support and engagement strategies.
 
-API-based inference
+The focus of this project is not only model accuracy, but also **deployability, automation, and maintainability**, aligning with real-world MLOps workflows.
 
-Cloud deployment
+---
 
-Automated retraining
+## Architecture (High-Level)
 
-Architecture Diagram (Textual)
 
                 ┌──────────────┐
                 │   Dataset    │
@@ -44,53 +43,48 @@ Architecture Diagram (Textual)
                        │
                 AWS ECR → ECS
 
-Tech Stack
 
-Machine Learning
+---
 
-Python
+## Tech Stack
 
-Scikit-learn (Random Forest)
+- **Programming & ML:** Python, Scikit-learn  
+- **API & Backend:** FastAPI, Pydantic, Swagger UI  
+- **MLOps & Cloud:** Docker, AWS S3, Lambda, ECR, ECS  
+- **Development:** Git, GitHub, Object-Oriented Programming (OOP)
 
-API & Backend
+---
 
-FastAPI
+## Key Features
 
-Pydantic
+- End-to-end ML pipeline (data preprocessing → training → evaluation)
+- Modular and scalable code structure using OOP
+- Model deployment as a REST API using FastAPI
+- Input validation using Pydantic
+- Containerized deployment using Docker
+- Cloud deployment on AWS ECS
+- Event-driven model retraining using S3 and Lambda
 
-Swagger UI
+---
 
-MLOps & Cloud
+## How to Run the API Locally
 
-Docker
+### Using Docker (Recommended)
 
-AWS S3 (data & model storage)
 
-AWS Lambda (automated retraining)
-
-AWS ECR & ECS (container registry & deployment)
-
-Development
-
-Git & GitHub
-
-Object-Oriented Programming (OOP)
-
-How to Run API Locally
-Option 1: Using Docker (Recommended)
 docker build -t course-completion-ml .
 docker run -p 8000:8000 course-completion-ml
 
-
-Open Swagger UI:
-
+#Open API documentation:
 http://127.0.0.1:8000/docs
 
-Option 2: Without Docker
+#Without Docker:
 pip install -r requirements.txt
 uvicorn main:app --reload
 
-API Endpoint
+---
+
+#API Endpoint
 
 POST /predict
 
@@ -99,52 +93,44 @@ Student engagement features in JSON format
 
 Output:
 
-Completed
+-Completed
 
-Not Completed
+-Not Completed
 
-How Retraining Works (S3 → Lambda)
+---
 
-New dataset is uploaded to AWS S3
+Automated Retraining (S3 → Lambda)
 
-S3 event triggers AWS Lambda
+New datasets uploaded to AWS S3 trigger an AWS Lambda function
 
-Lambda:
+Lambda retrains the model and stores the updated version back to S3
 
-Loads new data
+The FastAPI service loads the latest model for inference
 
-Retrains the ML model
+---
 
-Evaluates performance
+#CI/CD Overview
 
-Saves updated model back to S3
+Code versioned using GitHub
 
-FastAPI service loads the latest model for inference
+Docker images built and pushed to AWS ECR
 
-This enables automated, event-driven model retraining, aligning with MLOps best practices.
+Services deployed to AWS ECS
 
-CI/CD Pipeline Overview
+Focus on automation, reproducibility, and scalability
 
-Code pushed to GitHub
+---
 
-Docker image built locally or via pipeline
+#Key Learnings
 
-Image pushed to AWS ECR
-
-Deployed to AWS ECS
-
-FastAPI service updated with minimal downtime
-
-(CI/CD concepts implemented with focus on automation and reproducibility)
-
-Key Learnings
-
-Designing production-ready ML systems
+Building production-ready ML systems
 
 Deploying ML models as scalable APIs
 
 Containerization and cloud deployment
 
-Event-driven retraining pipelines
+Event-driven model retraining
 
-Applying MLOps principles to real-world ML problems
+Applying MLOps best practices in practice
+
+
