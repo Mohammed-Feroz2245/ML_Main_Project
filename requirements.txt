@@ -1,1 +1,7 @@
+fastapi
+pydantic
+pandas
 boto3
+scikit-learn
+pytest
+httpx

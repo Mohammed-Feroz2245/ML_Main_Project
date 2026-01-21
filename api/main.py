@@ -5,6 +5,10 @@ from src.model_class import CourseCompletionModel
 app = FastAPI()
 model = CourseCompletionModel()
 
+@app.on_event("startup")
+def startup_event():
+    model.load_model()
+
 class StudentInput(BaseModel):
     age: int
     hours_per_week: int
@@ -19,12 +23,7 @@ class StudentInput(BaseModel):
 def home():
     return {"message": "API is running"}
 
-
 @app.post("/predict")
 def predict_course(data: StudentInput):
-    input_data = data.dict()
-    result = model.predict(input_data)
-
-    return {
-        "prediction": "Completed" if result == 1 else "Not Completed"
-    }
+    result = model.predict(data.dict())
+    return {"prediction": "Completed" if result == 1 else "Not Completed"}
