@@ -57,3 +57,6 @@ jobs:
         run: |
           docker push \
           685251218327.dkr.ecr.eu-north-1.amazonaws.com/course-completion-api:latest
+
+
+# CI/CD pipeline for Online Course Completion API
