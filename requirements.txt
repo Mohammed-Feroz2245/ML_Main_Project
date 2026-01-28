@@ -6,3 +6,4 @@ boto3
 scikit-learn
 pytest
 httpx
+apache-airflow==2.7.1
