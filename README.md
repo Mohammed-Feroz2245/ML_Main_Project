@@ -98,7 +98,7 @@ Output: "Completed" or "Not Completed"
   "tablet": 0
 }
 
-##Automated Retraining (S3 → Lambda)
+Automated Retraining (S3 → Lambda)
 
 New datasets uploaded to AWS S3 trigger an AWS Lambda function.
 
@@ -107,7 +107,7 @@ Lambda retrains the model and stores the updated version back to S3.
 FastAPI service automatically loads the latest model for inference.
 
 
-##CI/CD Overview
+CI/CD Overview
 
 GitHub Actions pipeline:
 
@@ -123,7 +123,7 @@ Ensures automation, reproducibility, and scalability for deployments.
 
 
 
-##Key Learnings
+Key Learnings
 
 Building production-ready ML systems
 
