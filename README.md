@@ -76,6 +76,8 @@ docker build -t course-completion-ml -f docker/Dockerfile.api .
 docker run -p 8000:8000 course-completion-ml
 ```
 
+---
+
 Open API documentation: http://127.0.0.1:8000/docs
 
 
@@ -106,6 +108,7 @@ Lambda retrains the model and stores the updated version back to S3.
 
 FastAPI service automatically loads the latest model for inference.
 
+---
 
 CI/CD Overview
 
@@ -121,7 +124,7 @@ Pushes image to AWS ECR
 
 Ensures automation, reproducibility, and scalability for deployments.
 
-
+---
 
 Key Learnings
 
